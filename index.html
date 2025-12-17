@@ -1,386 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tejas Sood | Data & Revenue Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tejas Sood | Data & Revenue Analyst</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-30T7EMDE4W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-30T7EMDE4W');
-  </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-30T7EMDE4W"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-30T7EMDE4W');
+</script>
 
-  <style>
-    /* ===================== THEME VARIABLES ===================== */
-    :root {
-      --bg: #020617;
-      --card: rgba(15,23,42,0.85);
-      --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-    }
+<style>
+/* ================= THEME ================= */
+:root {
+  --bg: #020617;
+  --panel: #0f172a;
+  --card: #111827;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent1: #38bdf8;
+  --accent2: #6366f1;
+}
 
-    body.light {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #020617;
-      --muted: #475569;
-    }
+body.light {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --card: #f1f5f9;
+  --text: #020617;
+  --muted: #475569;
+}
 
-    /* ===================== GLOBAL ===================== */
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+/* ================= BASE ================= */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      scroll-snap-type: y proximity;
-      overflow-y: scroll;
-    }
+section {
+  padding: 120px 8%;
+}
 
-    header, section {
-      min-height: 90vh;
-      padding: 100px 10%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      scroll-snap-align: start;
-      scroll-margin-top: 90px;
-      will-change: transform, opacity;
-    }
+h1 { font-size: 56px; }
+h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+p { color: var(--muted); }
 
-    h1 { font-size: 52px; margin-bottom: 12px; }
-    h2 { color: var(--accent); font-weight: 500; margin-bottom: 20px; }
-    h3 { margin-bottom: 8px; }
+/* ================= NAV ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 8%;
+  background: rgba(2,6,23,0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+}
 
-    p, li { color: #cbd5f5; line-height: 1.6; }
+body.light nav { background: rgba(248,250,252,0.9); }
 
-    /* ===================== NAV ===================== */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 14px 10%;
-      display: flex;
-      justify-content: space-between;
-      background: rgba(2,6,23,0.85);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-    }
+nav a {
+  color: var(--text);
+  margin-left: 24px;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-    body.light nav {
-      background: rgba(248,250,252,0.9);
-    }
+/* ================= THEME SWITCH ================= */
+.switch {
+  width: 48px;
+  height: 26px;
+  background: #334155;
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+}
+.switch::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+body.light .switch::after { left: 24px; }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
+/* ================= HERO ================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  min-height: 100vh;
+  align-items: center;
+}
 
-    /* ===================== SKIP LINK ===================== */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 20px;
-      background: var(--accent);
-      color: #020617;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-weight: 600;
-      z-index: 3000;
-    }
+.hero-panel {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  border-radius: 24px;
+  padding: 32px;
+}
 
-    .skip-link:focus { top: 20px; }
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
 
-    /* ===================== CARDS ===================== */
-    .card {
-      background: var(--card);
-      padding: 32px;
-      border-radius: 22px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.45);
-      margin-bottom: 32px;
-      transition: transform 0.4s ease;
-      transform-style: preserve-3d;
-    }
+.metric {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+}
+.metric span {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    .card:hover { transform: translateY(-8px); }
+/* ================= IMPACT ================= */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.impact-card {
+  background: var(--card);
+  padding: 36px;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-    }
+/* ================= CHARTS ================= */
+.chart-card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 24px;
+  margin-top: 40px;
+}
 
-    a.button {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 14px 30px;
-      border-radius: 999px;
-      background: linear-gradient(135deg,#38bdf8,#0ea5e9);
-      color: #020617;
-      text-decoration: none;
-      font-weight: 600;
-    }
+canvas { width: 100%; }
 
-    /* ===================== REVEAL ===================== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s ease;
-    }
+/* ================= RADIAL ================= */
+.radial-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+.radial {
+  text-align: center;
+}
+.radial svg {
+  width: 120px;
+  transform: rotate(-90deg);
+}
+.radial circle {
+  fill: none;
+  stroke-width: 10;
+}
+.radial circle:first-child { stroke: #1e293b; }
+.radial circle:last-child {
+  stroke: var(--accent1);
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: 1.5s;
+}
 
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* ================= FUNNEL ================= */
+.funnel {
+  margin-top: 60px;
+}
+.funnel div {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  margin: 14px auto;
+  padding: 14px;
+  border-radius: 999px;
+  text-align: center;
+  color: #020617;
+  font-weight: 600;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: grow 1s forwards;
+}
+.funnel div:nth-child(2){animation-delay:.2s}
+.funnel div:nth-child(3){animation-delay:.4s}
+@keyframes grow { to { transform: scaleX(1); } }
 
-    /* ===================== KPI ===================== */
-    .kpi { text-align: center; }
+/* ================= EXPERIENCE ================= */
+.timeline {
+  max-width: 900px;
+  margin: auto;
+}
+.job {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+}
 
-    .kpi span {
-      font-size: 40px;
-      font-weight: 700;
-      display: block;
-    }
+/* ================= CONTACT ================= */
+.contact-box {
+  max-width: 800px;
+  margin: auto;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  padding: 60px;
+  border-radius: 32px;
+  text-align: center;
+}
+.contact-box a {
+  display: inline-block;
+  margin: 16px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: #020617;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+}
 
-    /* ===================== INSIGHT CARDS ===================== */
-    .insight-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-      margin-top: 40px;
-    }
-
-    .insight-card {
-      position: relative;
-      padding: 36px 28px;
-      border-radius: 26px;
-      background: linear-gradient(160deg, var(--card), rgba(2,6,23,0.95));
-      overflow: hidden;
-    }
-
-    .insight-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 60%);
-    }
-
-    .ring {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: conic-gradient(var(--accent) 0deg, rgba(255,255,255,0.1) 0deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    /* ===================== TIMELINE ===================== */
-    .timeline {
-      position: relative;
-      padding-left: 30px;
-      margin-top: 60px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 0 6px rgba(56,189,248,0.15);
-      margin-top: 8px;
-    }
-
-    /* ===================== FOCUS ===================== */
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-
-    /* ===================== FOOTER ===================== */
-    footer {
-      padding: 40px 10%;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    /* ===================== REDUCED MOTION ===================== */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr}
+  .radial-grid{flex-direction:column}
+}
+</style>
 </head>
 
 <body>
 
-<a href="#impact" class="skip-link">Skip to content</a>
-
-<nav role="navigation">
+<nav>
   <strong>Tejas Sood</strong>
   <div>
     <a href="#impact">Impact</a>
     <a href="#insights">Insights</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
-    <button id="themeToggle">🌙</button>
+    <span class="switch" id="themeToggle"></span>
   </div>
 </nav>
 
-<header role="banner" class="reveal">
-  <h1>Tejas Sood</h1>
-  <h2>Data Analyst | Revenue Operations | Business Intelligence</h2>
-  <p>I turn operational and revenue data into clear, actionable business insights.</p>
-</header>
+<section class="hero">
+  <div>
+    <h1>Tejas Sood</h1>
+    <h3>Data Analyst · Revenue Operations · Business Intelligence</h3>
+    <p>I build data systems that turn revenue and operations into clarity.</p>
+  </div>
 
-<section id="impact" class="reveal" role="region">
-  <h2>Key Impact</h2>
-  <div class="grid">
-    <div class="card kpi"><span data-count="5000">0</span>Shipments Analysed</div>
-    <div class="card kpi"><span data-count="150">0</span>Customers Managed</div>
-    <div class="card kpi"><span data-count="20">0</span>% Revenue Uplift</div>
-    <div class="card kpi"><span data-count="200">0</span>Agent Interactions</div>
+  <div class="hero-panel">
+    <h4>Live Metrics</h4>
+    <div class="metric-grid">
+      <div class="metric"><span>5,000+</span><p>Shipments</p></div>
+      <div class="metric"><span>150+</span><p>Customers</p></div>
+      <div class="metric"><span>20%</span><p>Revenue Uplift</p></div>
+      <div class="metric"><span>200+</span><p>Agents</p></div>
+    </div>
   </div>
 </section>
 
-<section id="insights" class="reveal">
-  <h2>Data Insights</h2>
-  <div class="insight-grid">
-    <div class="insight-card"><div class="ring" data-percent="92">92%</div>Invoice Accuracy</div>
-    <div class="insight-card"><div class="ring" data-percent="80">80%</div>Revenue Recovery</div>
-    <div class="insight-card"><div class="ring" data-percent="70">70%</div>Customer Reactivation</div>
-    <div class="insight-card"><div class="ring" data-percent="85">85%</div>Process Optimisation</div>
+<section id="impact">
+  <h2>Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">Invoice Validation Automation</div>
+    <div class="impact-card">Revenue Forecasting</div>
+    <div class="impact-card">Customer Reactivation</div>
+    <div class="impact-card">Tariff Optimisation</div>
   </div>
 </section>
 
-<section id="experience" class="reveal">
-  <h2>Professional Journey</h2>
+<section id="insights">
+  <h2>Insights</h2>
+
+  <div class="chart-card">
+    <h3>Operational Activity Trend</h3>
+    <canvas id="lineChart" width="600" height="300"></canvas>
+  </div>
+
+  <div class="radial-grid">
+    <div class="radial" data-value="92">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45"/>
+        <circle cx="50" cy="50" r="45"/>
+      </svg>
+      <p>Invoice Accuracy</p>
+    </div>
+    <div class="radial" data-value="80">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45"/>
+        <circle cx="50" cy="50" r="45"/>
+      </svg>
+      <p>Revenue Recovery</p>
+    </div>
+    <div class="radial" data-value="70">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45"/>
+        <circle cx="50" cy="50" r="45"/>
+      </svg>
+      <p>Customer Reactivation</p>
+    </div>
+  </div>
+
+  <div class="funnel">
+    <div style="width:90%">Invoices Validated</div>
+    <div style="width:70%">Revenue Identified</div>
+    <div style="width:55%">Customers Reactivated</div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
   <div class="timeline">
-    <div class="timeline-item">
-      <div class="dot"></div>
-      <div class="card">
-        <h3>Xindus — Management Trainee (Data & Revenue)</h3>
-        <p>Oct 2025 – Present</p>
-        <ul>
-          <li>Invoice validation for USPS, UPS & FedEx using Excel automation</li>
-          <li>Identified inactive customers driving 20% revenue uplift</li>
-          <li>Reactivated 150 customers across 5,000 shipments</li>
-          <li>Optimised tariffs and removed IOR, DAS & Duty fees</li>
-        </ul>
-      </div>
+    <div class="job">
+      <h3>Xindus — Management Trainee (Data & Revenue)</h3>
+      <p>Invoice validation, revenue recovery, tariff optimisation, CRM operations</p>
     </div>
-
-    <div class="timeline-item">
-      <div class="dot"></div>
-      <div class="card">
-        <h3>TravClan — Business Development Intern (B2B)</h3>
-        <p>Feb 2025 – May 2025</p>
-        <ul>
-          <li>Reduced onboarding time by 20%</li>
-          <li>A/B testing improved conversion by 25%</li>
-          <li>Built Excel dashboards from 200+ interactions</li>
-        </ul>
-      </div>
+    <div class="job">
+      <h3>TravClan — Business Development Intern</h3>
+      <p>CRM analytics, A/B testing, funnel optimisation, dashboards</p>
     </div>
   </div>
 </section>
 
-<section id="contact" class="reveal">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: tejassood196@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/tejas-sood-ba9ba6219</p>
-    <a class="button" href="Tejas_Sood_Resume.pdf" download onclick="trackResumeDownload()" aria-label="Download resume PDF">
-      Download Resume
-    </a>
+<section id="contact">
+  <h2>Let’s Work Together</h2>
+  <div class="contact-box">
+    <p>Interested in building data-driven revenue systems?</p>
+    <a href="mailto:tejassood196@gmail.com">Email Me</a>
+    <a href="Tejas_Sood_Resume.pdf" download onclick="gtag('event','resume_download')">Download Resume</a>
   </div>
 </section>
-
-<footer>
-  © 2025 Tejas Sood
-</footer>
 
 <script>
-  /* Reveal */
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("active"));
-  }, { threshold: 0.25 });
-  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+/* Theme toggle */
+const toggle = document.getElementById("themeToggle");
+toggle.onclick = () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+};
+document.body.classList.toggle("light", localStorage.getItem("theme")==="light");
 
-  /* KPI Counter */
-  const counters = document.querySelectorAll("[data-count]");
-  const kpiObserver = new IntersectionObserver(e => {
-    if (e[0].isIntersecting) {
-      counters.forEach(c => {
-        let cur = 0, target = +c.dataset.count, step = Math.ceil(target / 80);
-        const tick = () => {
-          cur += step;
-          if (cur >= target) c.textContent = target;
-          else { c.textContent = cur; requestAnimationFrame(tick); }
-        };
-        tick();
-      });
-      kpiObserver.disconnect();
-    }
-  }, { threshold: 0.3 });
-  kpiObserver.observe(document.getElementById("impact"));
-
-  /* Rings */
-  document.querySelectorAll(".ring").forEach(r => {
-    const pct = r.dataset.percent;
-    r.style.background = `conic-gradient(var(--accent) ${pct*3.6}deg, rgba(255,255,255,0.1) 0deg)`;
+/* Line chart */
+const ctx = document.getElementById("lineChart").getContext("2d");
+let data=[20,40,35,60,55,80,95],max=Math.max(...data),pad=40,p=0;
+function draw(){
+  p+=0.02;
+  ctx.clearRect(0,0,600,300);
+  ctx.strokeStyle="#38bdf8";
+  ctx.beginPath();
+  data.forEach((v,i)=>{
+    let x=pad+(i/(data.length-1))*(600-pad*2);
+    let y=300-pad-(v/max)*(300-pad*2)*p;
+    i?ctx.lineTo(x,y):ctx.moveTo(x,y);
   });
+  ctx.stroke();
+  if(p<1)requestAnimationFrame(draw);
+}
+draw();
 
-  /* Theme Toggle */
-  const toggle = document.getElementById("themeToggle");
-  function setTheme(t) {
-    document.body.classList.toggle("light", t === "light");
-    toggle.textContent = t === "light" ? "☀️" : "🌙";
-    localStorage.setItem("theme", t);
-  }
-  toggle.onclick = () => setTheme(localStorage.getItem("theme") === "light" ? "dark" : "light");
-  setTheme(localStorage.getItem("theme") || "dark");
-
-  /* Resume Tracking */
-  function trackResumeDownload() {
-    if (typeof gtag === "function") {
-      gtag("event", "resume_download", { event_category: "engagement" });
-    }
-  }
+/* Radial */
+document.querySelectorAll(".radial").forEach(r=>{
+  let v=r.dataset.value;
+  r.querySelectorAll("circle")[1].style.strokeDashoffset=283-(283*v/100);
+});
 </script>
 
 </body>

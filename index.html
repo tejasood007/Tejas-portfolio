@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tejas Sood </title>
+  <title>Tejas Sood | Data & Revenue Portfolio</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Google Analytics (REPLACE G-XXXXXXXXXX) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-30T7EMDE4W"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,14 +19,42 @@
 
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #020617; color: #e5e7eb; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
 
-    header { padding: 100px 10%; background: radial-gradient(circle at top, #0f172a, #020617); }
+    header {
+      padding: 100px 10%;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+
     h1 { font-size: 52px; margin-bottom: 12px; }
     h2 { color: #38bdf8; font-weight: 500; }
     h3 { margin-bottom: 6px; }
 
-    section { padding: 90px 10%; }
+    section { padding: 90px 10%; will-change: transform, opacity; }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(8px);
+      padding: 14px 10%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
 
     .card {
       background: rgba(15,23,42,0.8);
@@ -34,8 +62,11 @@
       border-radius: 20px;
       margin-bottom: 32px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.45);
-      transition: transform .4s;
+      transition: transform .4s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
     }
+
     .card:hover { transform: translateY(-6px); }
 
     .grid {
@@ -58,25 +89,6 @@
       font-weight: 600;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(2,6,23,0.85);
-      backdrop-filter: blur(8px);
-      padding: 14px 10%;
-      display: flex;
-      justify-content: space-between;
-      z-index: 1000;
-    }
-
-    nav a {
-      color: #e5e7eb;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
-
     footer {
       padding: 40px 10%;
       background: #020617;
@@ -90,6 +102,7 @@
       transform: translateY(30px);
       animation: fadeUp 1s ease forwards;
     }
+
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
@@ -99,6 +112,7 @@
       transform: translateY(40px);
       transition: all 0.9s ease;
     }
+
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
@@ -110,8 +124,56 @@
       margin: 60px 0;
     }
 
+    /* Charts */
+    .bar-chart {
+      display: flex;
+      align-items: flex-end;
+      height: 200px;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .bar {
+      flex: 1;
+      height: 0;
+      background: linear-gradient(180deg, #38bdf8, #0ea5e9);
+      border-radius: 10px 10px 0 0;
+      position: relative;
+      transition: height 1.2s ease;
+    }
+
+    .bar span {
+      position: absolute;
+      top: -28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .bar label {
+      position: absolute;
+      bottom: -28px;
+      font-size: 13px;
+      color: #cbd5f5;
+    }
+
+    .progress-group { margin-bottom: 18px; }
+
+    .progress {
+      background: rgba(255,255,255,0.1);
+      height: 8px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      transition: width 1.4s ease;
+    }
+
     ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #020617; }
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(180deg, #38bdf8, #0ea5e9);
       border-radius: 8px;
@@ -126,78 +188,79 @@
   <div>
     <a href="#impact">Impact</a>
     <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
+    <a href="#charts">Insights</a>
     <a href="#contact">Contact</a>
-    <button id="themeToggle" style="margin-left:20px;padding:6px 12px;border-radius:20px;border:none;cursor:pointer;">🌙</button>
   </div>
 </nav>
 
 <header class="fade-up">
   <h1>Tejas Sood</h1>
   <h2>Data Analyst | Revenue Operations | Business Intelligence</h2>
-  <p>I analyze revenue, customer, and operational data to drive growth decisions, improve efficiency, and scale business performance.</p>
+  <p>I work at the intersection of data, revenue, and operations to drive accurate forecasting, efficiency, and growth.</p>
   <a href="#impact" class="button">View Impact</a>
 </header>
 
 <section id="impact" class="reveal">
   <h2>Key Impact</h2>
   <div class="grid">
-
-    <div class="card">
-      <h3><span data-count="5000">0</span>+</h3>
-      <p>Shipments Analyzed & Validated</p>
-    </div>
-
-    <div class="card">
-      <h3><span data-count="150">0</span>+</h3>
-      <p>Customers Managed & Reactivated</p>
-    </div>
-
-    <div class="card">
-      <h3><span data-count="20">0</span>%</h3>
-      <p>Revenue Uplift via Data Insights</p>
-    </div>
-
-    <div class="card">
-      <h3><span data-count="200">0</span>+</h3>
-      <p>B2B Agent & Lead Interactions Analyzed</p>
-    </div>
-
+    <div class="card"><h3><span data-count="5000">0</span>+</h3><p>Shipments Analyzed</p></div>
+    <div class="card"><h3><span data-count="150">0</span>+</h3><p>Customers Managed</p></div>
+    <div class="card"><h3><span data-count="20">0</span>%</h3><p>Revenue Uplift via Insights</p></div>
+    <div class="card"><h3><span data-count="200">0</span>+</h3><p>Agent & Lead Interactions</p></div>
   </div>
 </section>
 
+<div class="divider"></div>
+
+<section id="charts" class="reveal">
+  <h2>Data Insights</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Operational Volume</h3>
+      <div class="bar-chart">
+        <div class="bar" data-value="5000"><span>5,000</span><label>Shipments</label></div>
+        <div class="bar" data-value="150"><span>150</span><label>Customers</label></div>
+        <div class="bar" data-value="200"><span>200</span><label>Agents</label></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Focus Areas</h3>
+      <div class="progress-group"><p>Invoice Validation</p><div class="progress"><span data-progress="90"></span></div></div>
+      <div class="progress-group"><p>Revenue Analysis</p><div class="progress"><span data-progress="80"></span></div></div>
+      <div class="progress-group"><p>Customer Reactivation</p><div class="progress"><span data-progress="70"></span></div></div>
+      <div class="progress-group"><p>CRM & Tariff Optimisation</p><div class="progress"><span data-progress="85"></span></div></div>
+    </div>
+  </div>
+</section>
 
 <div class="divider"></div>
 
 <section id="experience" class="reveal">
   <h2>Professional Experience</h2>
 
-  <!-- XINDUS -->
   <div class="card">
     <h3>Xindus — Management Trainee (Data & Revenue)</h3>
     <p><i>Oct 2025 – Present</i></p>
     <ul>
-      <li>Performed advanced data analysis and invoice validation for major carriers including USPS, UPS, and FedEx using Excel automation to improve billing accuracy and operational efficiency</li>
-      <li>Generated revenue insights to identify high-potential inactive customers, enabling data-driven forecasting and contributing to a 20% revenue uplift</li>
-      <li>Executed outreach and reactivation calls for churned customers in the Jaipur region, supporting revenue recovery across 150 customers and 5,000 shipments in a single month</li>
-      <li>Created and uploaded global tariff structures and optimized pricing by removing additional charges such as IOR, Duty Fees, and DAS using CRM systems</li>
+      <li>Performed invoice validation and advanced data analysis for USPS, UPS, and FedEx using Excel automation</li>
+      <li>Generated revenue insights to identify inactive customers, contributing to a 20% revenue uplift</li>
+      <li>Reactivated churned customers across 150 accounts and 5,000 shipments in Jaipur region</li>
+      <li>Created global tariff structures and optimised pricing by removing IOR, Duty, and DAS charges</li>
     </ul>
   </div>
 
-  <!-- TRAVCLAN -->
   <div class="card">
-    <h3>TravClan — Business Development Intern (B2B Client Acquisition)</h3>
+    <h3>TravClan — Business Development Intern (B2B)</h3>
     <p><i>Feb 2025 – May 2025</i></p>
     <ul>
-      <li>Analyzed CRM workflows to identify onboarding bottlenecks and documented process improvements that reduced customer activation time by 20%</li>
-      <li>Designed and executed structured A/B testing experiments to evaluate funnel changes, improving conversion rates by 25%</li>
-      <li>Collaborated with Sales, Operations, and Product teams to streamline lead funnel processes, increasing active leads by 15%</li>
-      <li>Built and maintained Excel dashboards tracking performance insights from 200+ agent interactions to support data-driven decisions</li>
+      <li>Analysed CRM workflows and reduced onboarding time by 20%</li>
+      <li>Designed A/B tests improving conversion rates by 25%</li>
+      <li>Built Excel dashboards from 200+ agent interactions to support decisions</li>
     </ul>
   </div>
-
 </section>
-
 
 <div class="divider"></div>
 
@@ -205,87 +268,55 @@
   <h2>Contact</h2>
   <div class="card">
     <p>Email: tejassood196@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/https://www.linkedin.com/in/tejas-sood-ba9ba6219/</p>
-
-    <!-- Resume Download (Tracked) -->
-    <a
-      class="button"
-      href="Tejas_Sood_Resume.pdf"
-      download
-      onclick="trackResumeDownload()"
-    >
-      Download Resume
-    </a>
+    <p>LinkedIn: https://www.linkedin.com/in/tejas-sood-ba9ba6219/</p>
+    <a class="button" href="Tejas_Sood_Resume.pdf" download onclick="trackResumeDownload()">Download Resume</a>
   </div>
 </section>
 
 <footer>
-  © 2025 Tejas Sood. Built for scale and clarity.
+  © 2025 Tejas Sood. Built with data, clarity, and intent.
 </footer>
 
 <script>
-  // Reveal on scroll
-  window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-        el.classList.add('active');
-      }
-    });
-  });
+  /* Reveal sections */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("active"));
+  }, { threshold: 0.25 });
 
-  // Theme toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("light");
-      toggle.textContent = toggle.textContent === "🌙" ? "☀️" : "🌙";
-    });
-  });
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-  // KPI Counter
+  /* KPI counters */
   document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll("[data-count]");
-    let done = false;
-
-    const animate = () => {
-      if (done) return;
-      done = true;
-
-      counters.forEach(counter => {
-        const target = +counter.dataset.count;
-        let current = 0;
-        const step = Math.ceil(target / 80);
-
-        const tick = () => {
-          current += step;
-          if (current >= target) {
-            counter.textContent = target;
-          } else {
-            counter.textContent = current;
-            requestAnimationFrame(tick);
-          }
-        };
-        tick();
-      });
-    };
-
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        animate();
-        observer.disconnect();
-      }
-    }, { threshold: 0.3 });
-
-    observer.observe(document.getElementById("impact"));
+    const run = () => counters.forEach(c => {
+      let cur = 0, target = +c.dataset.count, step = Math.ceil(target / 80);
+      const tick = () => {
+        cur += step;
+        if (cur >= target) c.textContent = target;
+        else { c.textContent = cur; requestAnimationFrame(tick); }
+      };
+      tick();
+    });
+    const obs = new IntersectionObserver(e => e[0].isIntersecting && run(), { threshold: 0.3 });
+    obs.observe(document.getElementById("impact"));
   });
 
-  // Resume download tracking
+  /* Charts */
+  document.addEventListener("DOMContentLoaded", () => {
+    const chartObs = new IntersectionObserver(e => {
+      if (e[0].isIntersecting) {
+        document.querySelectorAll(".bar").forEach(b => b.style.height = Math.min(b.dataset.value / 50, 100) + "%");
+        document.querySelectorAll(".progress span").forEach(p => p.style.width = p.dataset.progress + "%");
+        chartObs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    chartObs.observe(document.getElementById("charts"));
+  });
+
+  /* Resume tracking */
   function trackResumeDownload() {
     if (typeof gtag === "function") {
-      gtag("event", "resume_download", {
-        event_category: "engagement",
-        event_label: "Tejas_Sood_Resume"
-      });
+      gtag("event", "resume_download", { event_category: "engagement" });
     }
   }
 </script>

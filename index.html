@@ -4,22 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tejas Sood | Revenue & Data Portfolio</title>
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (REPLACE G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #020617;
-      color: #e5e7eb;
-    }
+    body { margin: 0; font-family: 'Inter', sans-serif; background: #020617; color: #e5e7eb; }
 
-    header {
-      padding: 100px 10%;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-    }
-
+    header { padding: 100px 10%; background: radial-gradient(circle at top, #0f172a, #020617); }
     h1 { font-size: 52px; margin-bottom: 12px; }
     h2 { color: #38bdf8; font-weight: 500; }
     h3 { margin-bottom: 6px; }
@@ -151,7 +153,6 @@
 
 <section id="experience" class="reveal">
   <h2>Experience</h2>
-
   <div class="card">
     <h3>TravClan — Data & Revenue Associate</h3>
     <p><i>Feb 2025 – Present</i></p>
@@ -181,6 +182,16 @@
   <div class="card">
     <p>Email: yourname@email.com</p>
     <p>LinkedIn: linkedin.com/in/yourprofile</p>
+
+    <!-- Resume Download (Tracked) -->
+    <a
+      class="button"
+      href="Tejas_Sood_Resume.pdf"
+      download
+      onclick="trackResumeDownload()"
+    >
+      Download Resume
+    </a>
   </div>
 </section>
 
@@ -243,6 +254,16 @@
 
     observer.observe(document.getElementById("impact"));
   });
+
+  // Resume download tracking
+  function trackResumeDownload() {
+    if (typeof gtag === "function") {
+      gtag("event", "resume_download", {
+        event_category: "engagement",
+        event_label: "Tejas_Sood_Resume"
+      });
+    }
+  }
 </script>
 
 </body>

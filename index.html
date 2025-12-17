@@ -5,105 +5,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tejas Sood | Revenue & Data Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #020617; color: #e5e7eb; }
-    header { padding: 100px 10%; background: radial-gradient(circle at top, #0f172a, #020617); }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    header {
+      padding: 100px 10%;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+
     h1 { font-size: 52px; margin-bottom: 12px; }
     h2 { color: #38bdf8; font-weight: 500; }
     h3 { margin-bottom: 6px; }
+
     section { padding: 90px 10%; }
-    .card { background: rgba(15,23,42,0.8); padding: 32px; border-radius: 20px; margin-bottom: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.45); transition: transform .4s; }
+
+    .card {
+      background: rgba(15,23,42,0.8);
+      padding: 32px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      transition: transform .4s;
+    }
     .card:hover { transform: translateY(-6px); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
     ul { padding-left: 20px; }
     li { margin-bottom: 10px; }
-    a.button { display: inline-block; margin-top: 24px; padding: 14px 30px; border-radius: 999px; background: linear-gradient(135deg,#38bdf8,#0ea5e9); color: #020617; text-decoration: none; font-weight: 600; }
-    nav { position: fixed; top: 0; width: 100%; background: rgba(2,6,23,0.85); backdrop-filter: blur(8px); padding: 14px 10%; display: flex; justify-content: space-between; z-index: 1000; }
-    nav a { color: #e5e7eb; text-decoration: none; margin-left: 20px; font-size: 14px; }
-    footer { padding: 40px 10%; background: #020617; text-align: center; font-size: 14px; color: #94a3b8; }
-    /* Animations */
-    .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 1s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-    /* Scrollbar */
+    a.button {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+      color: #020617;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(8px);
+      padding: 14px 10%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 40px 10%;
+      background: #020617;
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #38bdf8, transparent);
+      margin: 60px 0;
+    }
+
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #020617; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #38bdf8, #0ea5e9); border-radius: 8px; }
-    ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
-
-    /* Premium glass effect */
-    .glass { backdrop-filter: blur(12px); background: rgba(15,23,42,0.6); }
-
-    /* Section divider */
-    .divider { height: 1px; background: linear-gradient(to right, transparent, #38bdf8, transparent); margin: 60px 0; }
-
-    /* Reveal on scroll */
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-</style>
-
-<script>
-  // Reveal on scroll
-  window.addEventListener('scroll', () => {
-    document.querySelectorAll('.reveal').forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 80) el.classList.add('active');
-    });
-  });
-</script>
-
-<script>
-  // Dark / Light Theme Toggle
-  const toggle = document.getElementById('themeToggle');
-  const root = document.documentElement;
-
-  const setTheme = theme => {
-    if (theme === 'light') {
-      root.style.setProperty('--bg', '#f8fafc');
-      root.style.setProperty('--card', '#ffffff');
-      root.style.setProperty('--text', '#020617');
-      toggle.innerText = '☀️';
-    } else {
-      root.style.setProperty('--bg', '#020617');
-      root.style.setProperty('--card', 'rgba(15,23,42,0.8)');
-      root.style.setProperty('--text', '#e5e7eb');
-      toggle.innerText = '🌙';
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #38bdf8, #0ea5e9);
+      border-radius: 8px;
     }
-    localStorage.setItem('theme', theme);
-  };
-
-  toggle.addEventListener('click', () => {
-    const current = localStorage.getItem('theme') || 'dark';
-    setTheme(current === 'dark' ? 'light' : 'dark');
-  });
-
-  setTheme(localStorage.getItem('theme') || 'dark');
-</script>
-
-<script>
-  // KPI Counter Animation
-  const counters = document.querySelectorAll('[data-count]');
-  const speed = 120;
-  const animateCounters = () => {
-    counters.forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const inc = Math.ceil(target / speed);
-        if (count < target) {
-          counter.innerText = count + inc;
-          setTimeout(updateCount, 20);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-  };
-  window.addEventListener('load', animateCounters);
-</script>
+  </style>
 </head>
+
 <body>
 
 <nav>
@@ -111,8 +124,6 @@
   <div>
     <a href="#impact">Impact</a>
     <a href="#experience">Experience</a>
-    <a href="#case-studies">Case Studies</a>
-    <a href="#process">How I Work</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
     <button id="themeToggle" style="margin-left:20px;padding:6px 12px;border-radius:20px;border:none;cursor:pointer;">🌙</button>
@@ -129,84 +140,110 @@
 <section id="impact" class="reveal">
   <h2>Key Impact</h2>
   <div class="grid">
-    <div class="card glass"><h3>₹<span data-count="60">0</span>L+</h3><p>Monthly Revenue Managed</p></div>
-    <div class="card glass"><h3><span data-count="6000">0</span>+</h3><p>Agents Reactivated</p></div>
-    <div class="card glass"><h3><span data-count="300">0</span>+</h3><p>B2B Accounts Managed</p></div>
-    <div class="card glass"><h3><span data-count="25">0</span>%</h3><p>Organic Growth via Referrals</p></div>
+    <div class="card"><h3>₹<span data-count="60">0</span>L+</h3><p>Monthly Revenue Managed</p></div>
+    <div class="card"><h3><span data-count="6000">0</span>+</h3><p>Agents Reactivated</p></div>
+    <div class="card"><h3><span data-count="300">0</span>+</h3><p>B2B Accounts Managed</p></div>
+    <div class="card"><h3><span data-count="25">0</span>%</h3><p>Organic Growth via Referrals</p></div>
   </div>
 </section>
 
 <div class="divider"></div>
-<section id="about" class="reveal">
-  <h2>About Me</h2>
-  <div class="card glass">
-    <p>I am a data-driven Revenue Operations and Analytics professional with hands-on experience transforming raw operational data into actionable business insights. My work spans revenue tracking, churn analysis, customer segmentation, performance reporting, and process optimization across high-growth B2B environments.</p>
-    <p>I have partnered closely with sales, operations, and leadership teams to support forecasting, identify revenue leakage, and improve decision-making through dashboards and structured reporting. I focus on clarity, accuracy, and impact.</p>
-  </div>
-</section>
 
-<div class="divider"></div>
 <section id="experience" class="reveal">
-  <h2>Experience (Data & Revenue Focus)</h2>
   <h2>Experience</h2>
 
-  <div class="card glass">
+  <div class="card">
     <h3>TravClan — Data & Revenue Associate</h3>
     <p><i>Feb 2025 – Present</i></p>
     <ul>
-      <li>Analyzed performance data for 300+ B2B accounts to track revenue, bookings, and churn trends</li>
-      <li>Built and maintained revenue dashboards for weekly and monthly reporting</li>
-      <li>Identified revenue leakage and growth opportunities using cohort and trend analysis</li>
-      <li>Supported forecasting and decision-making through clean, structured datasets</li>
-      <li>Worked with enterprise clients and internal teams to improve data-driven execution</li>
-    </ul>
-  </div>
-
-  <div class="card glass">
-    <h3>TravClan — Business Development Intern</h3>
-    <p><i>Feb 2025 – Aug 2025</i></p>
-    <ul>
-      <li>Tracked outreach, conversion, and reactivation metrics for 5,800–6,000+ agents</li>
-      <li>Maintained structured datasets for agent performance and transaction activity</li>
-      <li>Assisted in funnel analysis and weekly productivity reporting</li>
-      <li>Gained hands-on exposure to operational data and revenue workflows</li>
-    </ul>
-  </div>
-
-  <div class="card glass">
-    <h3>Xindus — Revenue & Growth Analyst</h3>
-    <ul>
-      <li>Monitored revenue performance for 300+ accounts generating ₹60L+ monthly</li>
-      <li>Analyzed customer acquisition and referral data to improve organic growth by 20–25%</li>
-      <li>Built city-wise and account-wise revenue tracking reports</li>
-      <li>Supported leadership with data-backed insights for target setting and planning</li>
+      <li>Analyzed revenue and churn data for 300+ B2B accounts</li>
+      <li>Built dashboards for weekly and monthly reporting</li>
+      <li>Identified growth opportunities using trend analysis</li>
     </ul>
   </div>
 </section>
 
 <div class="divider"></div>
+
 <section id="skills" class="reveal">
   <h2>Core Skills</h2>
   <div class="grid">
-    <div class="card glass">Revenue Operations<br>Account Management<br>Growth Strategy</div>
-    <div class="card glass">Data Analysis<br>Dashboards<br>Excel & Reporting</div>
-    <div class="card glass">Client Servicing<br>CRM Systems<br>Team Leadership</div>
+    <div class="card">Revenue Operations<br>Growth Strategy</div>
+    <div class="card">Data Analysis<br>Dashboards<br>Excel</div>
+    <div class="card">Client Management<br>Stakeholder Communication</div>
   </div>
 </section>
 
 <div class="divider"></div>
+
 <section id="contact" class="reveal">
   <h2>Contact</h2>
-  <div class="card glass">
+  <div class="card">
     <p>Email: yourname@email.com</p>
     <p>LinkedIn: linkedin.com/in/yourprofile</p>
-    <a class="button" href="#">Download Resume</a>
   </div>
 </section>
 
 <footer>
   © 2025 Tejas Sood. Built for scale and clarity.
 </footer>
+
+<script>
+  // Reveal on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+        el.classList.add('active');
+      }
+    });
+  });
+
+  // Theme toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      toggle.textContent = toggle.textContent === "🌙" ? "☀️" : "🌙";
+    });
+  });
+
+  // KPI Counter
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll("[data-count]");
+    let done = false;
+
+    const animate = () => {
+      if (done) return;
+      done = true;
+
+      counters.forEach(counter => {
+        const target = +counter.dataset.count;
+        let current = 0;
+        const step = Math.ceil(target / 80);
+
+        const tick = () => {
+          current += step;
+          if (current >= target) {
+            counter.textContent = target;
+          } else {
+            counter.textContent = current;
+            requestAnimationFrame(tick);
+          }
+        };
+        tick();
+      });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        animate();
+        observer.disconnect();
+      }
+    }, { threshold: 0.3 });
+
+    observer.observe(document.getElementById("impact"));
+  });
+</script>
 
 </body>
 </html>
